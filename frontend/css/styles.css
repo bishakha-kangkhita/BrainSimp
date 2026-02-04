@@ -1,0 +1,255 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #333;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.header {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  padding: 1.2rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.logo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+}
+
+.nav ul {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: #ff9800;
+}
+
+.btn-login {
+  background: white;
+  color: #667eea !important;
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  color: white;
+  padding: 8rem 0 6rem;
+}
+
+.hero h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  opacity: 0.95;
+}
+
+.btn-primary, .btn-outline {
+  display: inline-block;
+  padding: 1rem 2.2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  background: white;
+  color: #667eea;
+  margin-right: 1rem;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.btn-outline {
+  border: 2px solid white;
+  color: white;
+}
+
+.btn-outline:hover {
+  background: white;
+  color: #667eea;
+}
+
+/* Games Section */
+.games-section {
+  background: white;
+  padding: 6rem 0;
+  border-radius: 40px 40px 0 0;
+}
+
+.games-section h2 {
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 3rem;
+  color: #333;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.game-card {
+  background: #f8f9ff;
+  border-radius: 16px;
+  padding: 2.5rem 1.8rem;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: all 0.3s;
+}
+
+.game-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 40px rgba(102,126,234,0.25);
+}
+
+.game-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.game-card h3 {
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+  color: #667eea;
+}
+
+.difficulty {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+.easy    { background: #4caf50; color: white; }
+.medium  { background: #ff9800; color: white; }
+.hard    { background: #f44336; color: white; }
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  color: white;
+  opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.6rem; }
+  .nav ul { flex-direction: column; gap: 1.5rem; }
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  margin-left: auto; /* pushes to right side */
+}
+
+#themeBtn {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+#themeBtn:hover {
+  background: rgba(255,255,255,0.35);
+  transform: scale(1.1);
+}
+
+.icon-sun, .icon-moon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.4s, transform 0.4s;
+}
+
+.icon-moon { opacity: 0; transform: translate(-50%, -50%) rotate(-90deg); }
+
+/* Dark mode styles */
+body.dark {
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+  color: #e0e0ff;
+}
+
+body.dark .header {
+  background: rgba(30,27,75,0.6);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+body.dark .games-section {
+  background: #0f0f1a;
+  color: #e0e0ff;
+}
+
+body.dark .game-card {
+  background: #1a1a2e;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+body.dark .game-card h3 {
+  color: #a5b4fc;
+}
+
+body.dark footer {
+  color: #c7d2fe;
+}
+
+/* Toggle animation when dark */
+body.dark #themeBtn {
+  background: #4b5563;
+}
+
+body.dark .icon-sun { opacity: 0; transform: translate(-50%, -50%) rotate(90deg); }
+body.dark .icon-moon { opacity: 1; transform: translate(-50%, -50%) rotate(0deg); }
+

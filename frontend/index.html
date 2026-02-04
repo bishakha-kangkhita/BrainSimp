@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BrainSimp - Train Your Brain</title>
+
+  <!-- Google Fonts (modern + readable) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Our styles -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <!-- Header / Navbar -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">BrainSimp</div>
+
+      <nav class="nav">
+        <ul>
+          <li><a href="#">Play</a></li>
+          <li><a href="#">Leaderboard</a></li>
+          <li><a href="#">Profile</a></li>
+          <li><a href="#" class="btn-login">Login</a></li>
+        </ul>
+      </nav>
+
+      <!-- Dark mode toggle -->
+      <div class="theme-toggle">
+        <button id="themeBtn" aria-label="Toggle dark mode">
+          <span class="icon-sun">☀️</span>
+          <span class="icon-moon">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Challenge Your Mind. Compete Globally.</h1>
+      <p>Train your brain with IQ tests, trivia, mind games & detective puzzles — solo or against friends.</p>
+      <div class="hero-buttons">
+        <a href="#" class="btn-primary">Start Playing</a>
+        <a href="#" class="btn-outline">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Auth Section (Login + Signup toggle) -->
+<section class="auth-section" style="padding: 5rem 0; background: rgba(255,255,255,0.08); text-align: center; color: white;">
+  <div class="container" style="max-width: 420px;">
+    
+    <h2 id="authTitle">Welcome Back</h2>
+    <p id="authSubtitle">Log in to start challenging your brain</p>
+
+    <form id="authForm" style="display: flex; flex-direction: column; gap: 1.2rem; margin: 2rem 0;">
+      
+      <!-- Username field - only visible in signup mode -->
+      <input type="text" id="authUsername" placeholder="Username" required
+             style="padding: 1rem; border-radius: 10px; border: none; font-size: 1rem; display: none;">
+
+      <input type="email" id="authEmail" placeholder="Email" required
+             style="padding: 1rem; border-radius: 10px; border: none; font-size: 1rem;">
+
+      <input type="password" id="authPassword" placeholder="Password" required
+             style="padding: 1rem; border-radius: 10px; border: none; font-size: 1rem;">
+
+      <button type="submit" id="authSubmitBtn"
+              style="padding: 1rem; background: #667eea; color: white; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: 600; cursor: pointer;">
+        Log In
+      </button>
+    </form>
+
+    <p style="margin-top: 1.5rem;">
+      <span id="toggleLink" style="color: #a5b4fc; cursor: pointer; font-weight: 500;">
+        Don't have an account? Sign Up
+      </span>
+    </p>
+
+    <p id="authMessage" style="margin-top: 1.5rem; font-weight: bold; min-height: 1.5em;"></p>
+  </div>
+</section>
+
+  <!-- Game Categories (Cards) -->
+  <section class="games-section">
+    <div class="container">
+      <h2>Choose Your Challenge</h2>
+      <div class="game-grid">
+
+        <div class="game-card">
+          <div class="game-icon">🧠</div>
+          <h3>IQ Tests</h3>
+          <p>Pattern recognition, logic, spatial reasoning</p>
+          <span class="difficulty easy">Easy → Hard</span>
+        </div>
+
+        <div class="game-card">
+          <div class="game-icon">❓</div>
+          <h3>Trivia</h3>
+          <p>Science, History, Sports, Movies & more</p>
+          <span class="difficulty medium">Easy → Hard</span>
+        </div>
+
+        <div class="game-card">
+          <div class="game-icon">🎮</div>
+          <h3>Mind Games</h3>
+          <p>Memory, Speed Math, Word Scramble...</p>
+          <span class="difficulty hard">Easy → Hard</span>
+        </div>
+
+        <div class="game-card">
+          <div class="game-icon">🔍</div>
+          <h3>Detective Puzzles</h3>
+          <p>Solve mysteries, find the culprit</p>
+          <span class="difficulty hard">Medium → Hard</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 BrainSimp. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
