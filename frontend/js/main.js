@@ -2,7 +2,6 @@
 const themeBtn = document.getElementById('themeBtn');
 const body = document.body;
 
-// Check saved preference or system preference
 const savedTheme = localStorage.getItem('theme');
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
@@ -10,7 +9,6 @@ if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
   body.classList.add('dark');
 }
 
-// Toggle function
 function toggleTheme() {
   if (body.classList.contains('dark')) {
     body.classList.remove('dark');
@@ -83,7 +81,7 @@ function checkAuthState() {
 // Run on page load
 checkAuthState();
 
-// ─── Unified Auth Form (Login + Signup toggle) ────────────────────────
+// ─── Unified Auth Form ────────────────────────
 const authForm = document.getElementById('authForm');
 const authTitle = document.getElementById('authTitle');
 const authSubtitle = document.getElementById('authSubtitle');
@@ -139,6 +137,10 @@ if (authForm) {
     authMessage.textContent = isLoginMode ? 'Logging in...' : 'Creating account...';
     authMessage.style.color = 'white';
 
+    const endpoint = isLoginMode ? '/api/auth/login' : '/api/auth/register';
+    const bodyData = isLoginMode 
+      ? { email, password }
+      : { username, email, password };
     const endpoint = isLoginMode ? '/api/auth/login' : '/api/auth/register';
     const bodyData = isLoginMode 
       ? { email, password }

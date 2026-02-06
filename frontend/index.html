@@ -1,56 +1,143 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BrainSimp - Train Your Brain</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BrainSimp - Challenge Your Mind</title>
 
-  <!-- Google Fonts (modern + readable) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap"
-    rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Our styles -->
-  <link rel="stylesheet" href="css/styles.css">
+  <!-- Google Fonts: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.5s ease, color 0.5s ease;
+    }
+
+    /* Dark mode — একদম আগের মতোই থাকছে */
+    body {
+      background: #0a0e1f;
+      color: #e2e8f0;
+    }
+
+    .glass {
+      background: rgba(20, 25, 50, 0.65);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(100, 120, 255, 0.12);
+    }
+
+    .card {
+      background: rgba(25, 30, 60, 0.7);
+      border: 1px solid rgba(80, 100, 255, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 20px 40px rgba(59, 130, 246, 0.18);
+    }
+
+    /* Light mode — শুধুমাত্র সাদা (white) ব্যাকগ্রাউন্ড */
+    body.light {
+      background: #ffffff;
+      color: #0f172a;
+    }
+
+    body.light .glass {
+      background: rgba(255, 255, 255, 0.97);
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+
+    body.light .card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+
+    body.light .card:hover {
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    }
+
+    body.light h1,
+    body.light h2,
+    body.light h3 {
+      color: #1e293b;
+    }
+
+    body.light .text-gray-300,
+    body.light .text-gray-400 {
+      color: #475569;
+    }
+
+    /* Theme toggle button */
+    #theme-toggle {
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: #e2e8f0;
+    }
+
+    body.light #theme-toggle {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      color: #1e293b;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+  </style>
 </head>
+<body class="min-h-screen">
 
-<body>
+  <!-- Theme Toggle Button -->
+  <button id="theme-toggle" class="fixed top-5 right-5 md:top-6 md:right-8 z-50 w-11 h-11 md:w-12 md:h-12 flex items-center justify-center rounded-full backdrop-blur-sm text-xl shadow-lg transition-all hover:scale-110">
+    🌙
+  </button>
 
-  <!-- Header / Navbar -->
-  <header class="header">
-    <div class="container">
-      <div class="logo">BrainSimp</div>
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 right-0 z-40 glass">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">🌙</span>
+          <span class="text-2xl font-bold tracking-tight">BrainSimp</span>
+        </div>
 
-      <nav class="nav">
-        <ul>
-          <li><a href="#">Play</a></li>
-          <li><a href="#">Leaderboard</a></li>
-          <li><a href="#">Profile</a></li>
-          <li><a href="#" class="btn-login">Login</a></li>
-        </ul>
-      </nav>
-
-      <!-- Dark mode toggle -->
-      <div class="theme-toggle">
-        <button id="themeBtn" aria-label="Toggle dark mode">
-          <span class="icon-sun">☀️</span>
-          <span class="icon-moon">🌙</span>
-        </button>
+        <div class="flex items-center gap-6 md:gap-10">
+          <a href="#" class="text-gray-300 hover:text-white transition font-medium hidden md:block">Play</a>
+          <a href="#" class="text-gray-300 hover:text-white transition font-medium hidden md:block">Leaderboard</a>
+          <a href="#" class="text-gray-300 hover:text-white transition font-medium hidden md:block">Profile</a>
+          
+          <button class="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 rounded-full font-medium text-white shadow-lg shadow-indigo-500/30 transition">
+            Login
+          </button>
+        </div>
       </div>
     </div>
-  </header>
+  </nav>
 
   <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <h1>Challenge Your Mind. Compete Globally.</h1>
-      <p>Train your brain with IQ tests, trivia, mind games & detective puzzles — solo or against friends.</p>
-      <div class="hero-buttons">
-        <a href="#" class="btn-primary">Start Playing</a>
-        <a href="#" class="btn-outline">Learn More</a>
+  <section class="pt-32 md:pt-40 pb-20 text-center bg-gradient-to-b from-indigo-950 via-blue-950 to-[#0a0e1f]">
+    <div class="max-w-5xl mx-auto px-4">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight">
+        Challenge Your Mind.<br>Compete Globally.
+      </h1>
+      
+      <p class="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-10 md:mb-12">
+        Train your brain with IQ tests, trivia, mind games & detective<br class="hidden sm:block">
+        puzzles — solo or against friends.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-5 justify-center">
+        <button class="px-10 py-4 bg-white text-gray-900 font-semibold rounded-full text-lg hover:bg-gray-200 transition shadow-xl">
+          Play Now
+        </button>
+        <button class="px-10 py-4 bg-transparent border-2 border-indigo-400 text-indigo-300 font-semibold rounded-full text-lg hover:bg-indigo-950/40 transition">
+          Learn More
+        </button>
       </div>
     </div>
   </section>
@@ -104,39 +191,97 @@
           <span class="difficulty easy">Easy → Hard</span>
         </div>
 
-        <div class="game-card">
-          <div class="game-icon">❓</div>
-          <h3>Trivia</h3>
-          <p>Science, History, Sports, Movies & more</p>
-          <span class="difficulty medium">Easy → Hard</span>
+      <!-- Trivia -->
+      <div class="card rounded-2xl p-6 md:p-8 text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-orange-900/5 pointer-events-none"></div>
+        <div class="w-20 h-20 md:w-24 md:h-24 mx-auto mb-6 bg-orange-900/30 rounded-full flex items-center justify-center text-5xl md:text-6xl">
+          ❓
         </div>
-
-        <div class="game-card">
-          <div class="game-icon">🎮</div>
-          <h3>Mind Games</h3>
-          <p>Memory, Speed Math, Word Scramble...</p>
-          <span class="difficulty hard">Easy → Hard</span>
-        </div>
-
-        <div class="game-card">
-          <div class="game-icon">🔍</div>
-          <h3>Detective Puzzles</h3>
-          <p>Solve mysteries, find the culprit</p>
-          <span class="difficulty hard">Medium → Hard</span>
-        </div>
-
+        <h3 class="text-xl md:text-2xl font-bold mb-3">Trivia</h3>
+        <p class="text-gray-400 text-sm md:text-base mb-6">
+          Science, History, Sports, Movies & more
+        </p>
+        <button class="w-full py-3 bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700 rounded-xl text-white font-medium">
+          Start Trivia
+        </button>
       </div>
+
+      <!-- Mind Games -->
+      <div class="card rounded-2xl p-6 md:p-8 text-center">
+        <div class="w-20 h-20 md:w-24 md:h-24 mx-auto mb-6 bg-blue-900/30 rounded-full flex items-center justify-center text-5xl md:text-6xl">
+          🎮
+        </div>
+        <h3 class="text-xl md:text-2xl font-bold mb-3">Mind Games</h3>
+        <p class="text-gray-400 text-sm md:text-base mb-6">
+          Memory, Speed Math, Word Scramble...
+        </p>
+        <button class="w-full py-3 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 rounded-xl text-white font-medium">
+          Play Now
+        </button>
+      </div>
+
+      <!-- Detective Puzzles -->
+      <div class="card rounded-2xl p-6 md:p-8 text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-purple-900/5 pointer-events-none"></div>
+        <div class="w-20 h-20 md:w-24 md:h-24 mx-auto mb-6 bg-purple-900/30 rounded-full flex items-center justify-center text-5xl md:text-6xl">
+          🔍
+        </div>
+        <h3 class="text-xl md:text-2xl font-bold mb-3">Detective Puzzles</h3>
+        <p class="text-gray-400 text-sm md:text-base mb-6">
+          Solve mysteries, find clues, crack cases
+        </p>
+        <button class="w-full py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-xl text-white font-medium">
+          Start Solving
+        </button>
+      </div>
+
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2026 BrainSimp. All rights reserved.</p>
-    </div>
-  </footer>
+  <!-- Bottom Status Bar -->
+  <div class="fixed bottom-0 left-0 right-0 h-10 bg-gray-950/90 backdrop-blur-md border-t border-gray-800 flex items-center justify-center text-sm text-gray-400 pointer-events-none">
+    <span>2026</span>
+    <span class="mx-4">•</span>
+    <span>BrainSimp</span>
+  </div>
 
-  <script src="js/main.js"></script>
+  <!-- Theme Toggle Script -->
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+
+    function loadTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      let theme = savedTheme || (prefersDark ? 'dark' : 'light');
+
+      html.classList.toggle('dark', theme === 'dark');
+      html.classList.toggle('light', theme === 'light');
+
+      themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+
+    function toggleTheme() {
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        html.classList.add('light');
+        localStorage.setItem('theme', 'light');
+        themeToggle.textContent = '🌙';
+      } else {
+        html.classList.remove('light');
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        themeToggle.textContent = '☀️';
+      }
+    }
+
+    loadTheme();
+
+    if (themeToggle) {
+      themeToggle.addEventListener('click', toggleTheme);
+    }
+  </script>
+
 </body>
-
 </html>
