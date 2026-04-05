@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trivia Game - BrainSimp</title>
+  
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="../styles.css">
+  <!-- Trivia specific CSS -->
+  <link rel="stylesheet" href="trivia.css">
+</head>
+<body>
+  <div class="container">
+    
+    <!-- Header -->
+    <header class="game-header">
+      <h1>🧠 Trivia Challenge</h1>
+      <div class="user-info" id="user-info">
+        <!-- JS দিয়ে username দেখাবে -->
+      </div>
+      <button id="logout-btn" class="logout-btn">Logout</button>
+    </header>
+
+    <!-- Game Area -->
+    <div class="game-container">
+      
+      <div class="game-stats">
+        <div>Score: <strong id="score">0</strong></div>
+        <div>Question: <strong id="question-num">1</strong>/10</div>
+      </div>
+
+      <!-- Question -->
+      <div id="question" class="question-text"></div>
+
+      <!-- Options -->
+      <div id="options" class="options-container"></div>
+
+      <!-- Next Button -->
+      <button id="next-btn" class="next-btn" style="display: none;">
+        Next Question →
+      </button>
+
+      <!-- Result Area (শেষে দেখাবে) -->
+      <div id="result" class="result" style="display: none;">
+        <h2>Game Over!</h2>
+        <p>Your Score: <strong id="final-score">0</strong>/10</p>
+        <p id="xp-gain"></p>
+        <button id="play-again-btn" class="play-again-btn">Play Again</button>
+        <a href="../index.html" class="home-btn">Go to Home</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../main.js"></script>
+  <script src="trivia.js"></script>
+</body>
+</html>

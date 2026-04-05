@@ -136,6 +136,68 @@ app.post('/api/auth/login', async (req, res) => {
     res.status(500).json({ error: 'Server error during login', details: error.message });
   }
 });
+// ====================== JWT AUTHENTICATION MIDDLEWARE ======================
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];   // Bearer TOKEN
+
+  if (!token) {
+    return res.status(401).json({ 
+      success: false, 
+      message: 'Access denied. No token provided.' 
+    });
+  }
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = decoded;     // req.user-এ user_id, username পাওয়া যাবে
+    next();                 // পরের route-এ যেতে দাও
+  } catch (err) {
+    return res.status(403).json({ 
+      success: false, 
+      message: 'Invalid or expired token' 
+    });
+  }
+}
+// ====================== TRIVIA GAME API ======================
+
+app.get('/api/games/trivia', authenticateToken, async (req, res) => {
+  try {
+    const [questions] = await db.query(`
+      SELECT 
+        id,
+        question_text,
+        option_a,
+        option_b,
+        option_c,
+        option_d,
+        correct_answer 
+      FROM questions 
+      WHERE category = 'trivia' 
+      ORDER BY RAND() 
+      LIMIT 10
+    `);
+
+    if (questions.length === 0) {
+      return res.status(404).json({
+        success: false,
+        message: "No trivia questions found in database. Please add some questions first."
+      });
+    }
+
+    res.json({
+      success: true,
+      questions: questions
+    });
+
+  } catch (error) {
+    console.error('Trivia API Error:', error.message);
+    res.status(500).json({
+      success: false,
+      message: "Server error while loading questions"
+    });
+  }
+});
 
 // Start server
 app.listen(port, () => {
