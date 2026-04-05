@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detective Puzzles - BrainSimp</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="detective.css">
+</head>
+<body>
+  <div class="container">
+
+    <header class="game-header">
+      <h1>🔍 Detective Puzzles</h1>
+      <div class="user-info" id="user-info"></div>
+      <button id="logout-btn" class="logout-btn">Logout</button>
+    </header>
+
+    <!-- Case Select -->
+    <div id="case-select">
+      <div class="case-intro">
+        <p class="intro-text">Put on your detective hat. Read each case, study the clues, and identify the culprit.</p>
+      </div>
+      <div id="case-list" class="case-list"></div>
+    </div>
+
+    <!-- Active Case -->
+    <div id="active-case" style="display:none;">
+
+      <div class="case-header">
+        <button id="back-to-cases" class="back-btn">← Cases</button>
+        <div class="case-meta">
+          <span id="case-difficulty" class="diff-badge"></span>
+          <span class="clue-count">Clues: <strong id="clues-used">0</strong></span>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="tape-label">CASE FILE</div>
+        <h2 id="case-title" class="case-title"></h2>
+        <p id="case-story" class="case-story"></p>
+      </div>
+
+      <div class="clues-section">
+        <h3 class="section-label">🗂 Evidence & Clues</h3>
+        <div id="clues-list" class="clues-list"></div>
+        <button id="reveal-clue-btn" class="reveal-clue-btn">🔎 Reveal Next Clue</button>
+      </div>
+
+      <div class="suspect-section">
+        <h3 class="section-label">👤 Suspects</h3>
+        <div id="suspects-list" class="suspects-list"></div>
+      </div>
+
+      <div class="accusation-section">
+        <h3 class="section-label">⚖️ Make Your Accusation</h3>
+        <p class="accuse-sub">Choose wisely — you only get one chance!</p>
+        <div id="accuse-buttons" class="accuse-buttons"></div>
+        <div id="verdict" class="verdict" style="display:none;"></div>
+      </div>
+
+    </div>
+
+    <!-- Scoreboard -->
+    <div id="detective-score" class="detective-score">
+      <span>🏅 Cases Solved: <strong id="solved-count">0</strong></span>
+      <span>⭐ Detective XP: <strong id="det-xp">0</strong></span>
+    </div>
+
+  </div>
+  <script src="detective.js"></script>
+</body>
+</html>

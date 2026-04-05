@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mind Games - BrainSimp</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="mind-games.css">
+</head>
+<body>
+  <div class="container">
+
+    <header class="game-header">
+      <h1>🎮 Mind Games</h1>
+      <div class="user-info" id="user-info"></div>
+      <button id="logout-btn" class="logout-btn">Logout</button>
+    </header>
+
+    <!-- Mode Select -->
+    <div id="mode-select" class="mode-select">
+      <h2 class="section-title">Choose Your Challenge</h2>
+      <div class="mode-grid">
+        <div class="mode-card" data-mode="memory">
+          <div class="mode-icon">🃏</div>
+          <h3>Memory Match</h3>
+          <p>Flip cards and find matching pairs. Train your memory!</p>
+          <span class="mode-tag">Memory</span>
+        </div>
+        <div class="mode-card" data-mode="speedmath">
+          <div class="mode-icon">⚡</div>
+          <h3>Speed Math</h3>
+          <p>Solve math problems as fast as you can. 60 seconds!</p>
+          <span class="mode-tag">Math</span>
+        </div>
+        <div class="mode-card" data-mode="wordscramble">
+          <div class="mode-icon">🔤</div>
+          <h3>Word Scramble</h3>
+          <p>Unscramble the letters to find the hidden word.</p>
+          <span class="mode-tag">Language</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Memory Game -->
+    <div id="memory-game" class="sub-game" style="display:none;">
+      <div class="sub-header">
+        <button class="back-btn" data-back>← Back</button>
+        <div class="sub-stats">
+          <span>Moves: <strong id="mem-moves">0</strong></span>
+          <span>Matches: <strong id="mem-matches">0</strong>/8</span>
+          <span>⏱ <strong id="mem-timer">0</strong>s</span>
+        </div>
+      </div>
+      <div id="mem-board" class="mem-board"></div>
+    </div>
+
+    <!-- Speed Math -->
+    <div id="speedmath-game" class="sub-game" style="display:none;">
+      <div class="sub-header">
+        <button class="back-btn" data-back>← Back</button>
+        <div class="sub-stats">
+          <span>Score: <strong id="sm-score">0</strong></span>
+          <span>⏱ <strong id="sm-timer">60</strong>s</span>
+          <span>Streak: <strong id="sm-streak">0</strong>🔥</span>
+        </div>
+      </div>
+      <div id="sm-screen">
+        <div id="sm-question" class="sm-question"></div>
+        <div id="sm-options" class="sm-options"></div>
+        <div id="sm-feedback" class="sm-feedback"></div>
+      </div>
+      <div id="sm-result" class="sm-result" style="display:none;"></div>
+    </div>
+
+    <!-- Word Scramble -->
+    <div id="wordscramble-game" class="sub-game" style="display:none;">
+      <div class="sub-header">
+        <button class="back-btn" data-back>← Back</button>
+        <div class="sub-stats">
+          <span>Score: <strong id="ws-score">0</strong></span>
+          <span>Word: <strong id="ws-num">1</strong>/10</span>
+          <span>Hints: <strong id="ws-hints">3</strong></span>
+        </div>
+      </div>
+      <div id="ws-screen">
+        <div class="ws-category" id="ws-category"></div>
+        <div class="ws-scrambled" id="ws-scrambled"></div>
+        <div class="ws-input-wrap">
+          <input type="text" id="ws-input" class="ws-input" placeholder="Type your answer..." autocomplete="off" spellcheck="false">
+          <button id="ws-submit" class="ws-submit">Check ✓</button>
+        </div>
+        <button id="ws-hint" class="ws-hint-btn">💡 Hint (3 left)</button>
+        <div id="ws-feedback" class="ws-feedback"></div>
+        <button id="ws-skip" class="ws-skip">Skip →</button>
+      </div>
+    </div>
+
+  </div>
+  <script src="mind-games.js"></script>
+</body>
+</html>

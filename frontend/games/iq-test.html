@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IQ Test - BrainSimp</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="iq-test.css">
+</head>
+<body>
+  <div class="container">
+
+    <header class="game-header">
+      <h1>🧠 IQ Test</h1>
+      <div class="user-info" id="user-info"></div>
+      <button id="logout-btn" class="logout-btn">Logout</button>
+    </header>
+
+    <!-- Intro Screen -->
+    <div id="intro-screen" class="intro-screen">
+      <div class="intro-card">
+        <div class="intro-icon">🧠</div>
+        <h2>Pattern Recognition & Logic</h2>
+        <p>Test your intelligence with <strong>15 questions</strong> covering pattern recognition, logical reasoning, and spatial thinking.</p>
+        <div class="intro-rules">
+          <div class="rule-item"><span>⏱</span> 30 seconds per question</div>
+          <div class="rule-item"><span>📊</span> IQ score calculated at the end</div>
+          <div class="rule-item"><span>🎯</span> No penalty for wrong answers</div>
+        </div>
+        <button id="start-btn" class="start-btn">Start Test →</button>
+      </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="game-screen" style="display:none;">
+      <div class="game-meta">
+        <div class="meta-item">Question <strong id="q-num">1</strong>/15</div>
+        <div class="meta-item timer-wrap">⏱ <strong id="timer">30</strong>s</div>
+        <div class="meta-item">Score: <strong id="score">0</strong></div>
+      </div>
+      <div class="progress-bar-wrap"><div id="progress-fill" class="progress-fill"></div></div>
+      <div id="category-badge" class="category-badge"></div>
+      <div id="question-box" class="question-box"></div>
+      <div id="options" class="options-grid"></div>
+      <div id="feedback" class="feedback"></div>
+      <button id="next-btn" class="next-btn" style="display:none;">Next →</button>
+    </div>
+
+    <!-- Result Screen -->
+    <div id="result-screen" class="result-screen" style="display:none;"></div>
+
+  </div>
+  <script src="iq-test.js"></script>
+</body>
+</html>
